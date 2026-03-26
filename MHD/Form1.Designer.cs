@@ -29,7 +29,6 @@ partial class Form1
     /// </summary>
     private void InitializeComponent()
     {
-        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
         zastavky = new System.Windows.Forms.ComboBox();
         linky = new System.Windows.Forms.ComboBox();
         pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -58,7 +57,6 @@ partial class Form1
         // 
         // pictureBox1
         // 
-        pictureBox1.BackgroundImage = ((System.Drawing.Image)resources.GetObject("pictureBox1.BackgroundImage"));
         pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
         pictureBox1.Location = new System.Drawing.Point(276, -62);
         pictureBox1.Name = "pictureBox1";
@@ -68,8 +66,8 @@ partial class Form1
         // 
         // label1
         // 
-        label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-        label1.Location = new System.Drawing.Point(22, 27);
+        label1.BackColor = System.Drawing.SystemColors.Control;
+        label1.Location = new System.Drawing.Point(19, 27);
         label1.Name = "label1";
         label1.Size = new System.Drawing.Size(60, 23);
         label1.TabIndex = 3;
@@ -94,7 +92,6 @@ partial class Form1
         Controls.Add(linky);
         Controls.Add(zastavky);
         Text = "Form1";
-        Load += Form1_Load;
         ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         ResumeLayout(false);
     }
