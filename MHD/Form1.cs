@@ -36,13 +36,40 @@ public partial class Form1 : Form
             Nazev = u["stop_name"].ToString()
         }).ToList();
 
-        linky.DataSource = data;
+            linky.DataSource = data;
     }
 
 
 
-    private void linky_SelectedIndexChanged(object sender, EventArgs e)
+    private async void linky_SelectedIndexChanged(object sender, EventArgs e)
     {
-        
+        {
+            if (linky.SelectedValue != null)
+            { 
+                string vybraneId = zastavky.SelectedValue.ToString();
+
+                using HttpClient client = new HttpClient();
+                string json = await client.GetStringAsync("https://mhd.adamhojer.cz/departures?line="+zastavky+"&stop="+stops);
+
+                JsonNode odjezdy = JsonNode.Parse(json);
+
+                var data = odjezdy.AsArray().Select(u => new
+                {
+                    Linka = u["linka"].ToString(),
+                    Směr = u["smer"].ToString(),
+                    Odjezd = DateTime.Parse(u["cas_odjezdu"].ToString()).ToShortTimeString()
+                }).ToList();
+
+                dataGridOdjezdy.DataSource = data;
+                
+
+
+            }
+        }
+    }
+
+    private void pictureBox1_Click(object sender, EventArgs e)
+    {
+         
     }
 }

@@ -29,6 +29,7 @@ partial class Form1
     /// </summary>
     private void InitializeComponent()
     {
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
         zastavky = new System.Windows.Forms.ComboBox();
         linky = new System.Windows.Forms.ComboBox();
         pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -48,21 +49,25 @@ partial class Form1
         // 
         // linky
         // 
+        linky.DisplayMember = "Nazev";
         linky.FormattingEnabled = true;
         linky.Location = new System.Drawing.Point(85, 56);
         linky.Name = "linky";
         linky.Size = new System.Drawing.Size(173, 23);
         linky.TabIndex = 1;
+        linky.ValueMember = "Id";
         linky.SelectedIndexChanged += linky_SelectedIndexChanged;
         // 
         // pictureBox1
         // 
+        pictureBox1.BackgroundImage = ((System.Drawing.Image)resources.GetObject("pictureBox1.BackgroundImage"));
         pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-        pictureBox1.Location = new System.Drawing.Point(276, -62);
+        pictureBox1.Location = new System.Drawing.Point(280, -16);
         pictureBox1.Name = "pictureBox1";
-        pictureBox1.Size = new System.Drawing.Size(529, 542);
+        pictureBox1.Size = new System.Drawing.Size(508, 479);
         pictureBox1.TabIndex = 2;
         pictureBox1.TabStop = false;
+        pictureBox1.Click += pictureBox1_Click;
         // 
         // label1
         // 
@@ -92,6 +97,7 @@ partial class Form1
         Controls.Add(linky);
         Controls.Add(zastavky);
         Text = "Form1";
+        Load += Form1_Load;
         ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         ResumeLayout(false);
     }
